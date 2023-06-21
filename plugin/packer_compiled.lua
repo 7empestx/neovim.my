@@ -140,6 +140,12 @@ _G.packer_plugins = {
     path = "/Users/gstarkma/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["typescript.nvim"] = {
+    config = { "\27LJ\2\n\v\0\2\2\0\0\0\1K\0\1\0ª\1\1\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\a\0003\4\6\0=\4\b\3=\3\t\2B\0\2\1K\0\1\0\vserver\14on_attach\1\0\0\0\28go_to_source_definition\1\0\1\rfallback\2\1\0\2\ndebug\1\21disable_commands\1\nsetup\15typescript\frequire\0" },
+    loaded = true,
+    path = "/Users/gstarkma/.local/share/nvim/site/pack/packer/start/typescript.nvim",
+    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/Users/gstarkma/.local/share/nvim/site/pack/packer/start/undotree",
@@ -157,6 +163,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
 time([[Config for rose-pine]], false)
+-- Config for: typescript.nvim
+time([[Config for typescript.nvim]], true)
+try_loadstring("\27LJ\2\n\v\0\2\2\0\0\0\1K\0\1\0ª\1\1\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\a\0003\4\6\0=\4\b\3=\3\t\2B\0\2\1K\0\1\0\vserver\14on_attach\1\0\0\0\28go_to_source_definition\1\0\1\rfallback\2\1\0\2\ndebug\1\21disable_commands\1\nsetup\15typescript\frequire\0", "config", "typescript.nvim")
+time([[Config for typescript.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
