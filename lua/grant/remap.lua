@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 -- Escape current file and go to netrw
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>fj", vim.cmd.Ex)
 
 -- In visual mode, moves the selected block one line down and reselects it
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -33,6 +33,10 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- In normal and visual mode, yank the current line or selection into the system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- In normal and visual mode, paste the current line or selection into the system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+vim.keymap.set("n", "<leader>P", [["+P]])
 
 -- In normal and visual mode, delete the current line or selection without altering the unnamed register
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
