@@ -75,3 +75,13 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 -- In normal mode, typing the leader key twice will reload the current Neovim configuration
 vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end)
+
+-- In normal mode, the leader key followed by 'w' runs a shell command to write the current file
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
+
+-- In normal mode, the leader key followed by 'q' runs a shell command to quit Neovim
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
+
+
+-- Remap C-w from window navagation to C-f
+vim.keymap.set("n", "<C-f>", "<C-w>")
