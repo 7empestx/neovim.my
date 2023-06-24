@@ -44,4 +44,5 @@ return require('packer').startup(function(use)
 
   use('jose-elias-alvarez/typescript.nvim')
   use('github/copilot.vim')
+  use('airblade/vim-gitgutter')
 end)
