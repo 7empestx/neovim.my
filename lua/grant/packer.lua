@@ -45,4 +45,23 @@ return require('packer').startup(function(use)
   use('jose-elias-alvarez/typescript.nvim')
   use('github/copilot.vim')
   use('airblade/vim-gitgutter')
+
+  use {
+    'chipsenkbeil/distant.nvim',
+    branch = 'v0.2',
+    config = function()
+      require('distant').setup {
+        ['*'] = require('distant.settings').chip_default()
+      }
+    end
+  }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  use {
+    'yamatsum/nvim-cursorline',
+  }
+  use { 'ThePrimeagen/vim-be-good' }
+  use { 'rstacruz/vim-closer' }
 end)
