@@ -8,6 +8,7 @@ require('lualine').setup {
       statusline = {},
       winbar = {},
     },
+    path = 1,
     ignore_focus = {},
     always_divide_middle = true,
     globalstatus = false,
@@ -36,5 +37,5 @@ require('lualine').setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {}
+  extensions = {'fugitive'}
 }
