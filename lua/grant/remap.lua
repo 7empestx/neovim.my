@@ -51,7 +51,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- In normal mode, the leader key followed by 'f' runs a formatting function on the current buffer, probably using an installed LSP (Language Server Protocol)
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
 
 -- In normal mode, Control-k and Control-j navigate through the location list and recent commands, repositioning the screen each time so the cursor line is in the middle
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -85,3 +85,18 @@ vim.keymap.set("n", "<leader>q", "<cmd>q<CR>")
 
 -- Remap C-w from window navagation to C-f
 vim.keymap.set("n", "<C-f>", "<C-w>")
+
+-- Lua
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+
+
+vim.keymap.set('i', '<C-k>', '<Plug>(copilot-next)')
+vim.keymap.set('i', '<C-j>', '<Plug>(copilot-previous)')
+vim.keymap.set('i', '<C-l>', '<Plug>(copilot-suggest)')
