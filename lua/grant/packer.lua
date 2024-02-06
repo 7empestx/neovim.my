@@ -4,6 +4,15 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+  use 'eandrju/cellular-automaton.nvim'
+  use {
+    'folke/trouble.nvim',
+    requires = {
+      "nvim-tree/nvim-web-devicons"
+    }
+
+  }
+
   use 'wbthomason/packer.nvim'
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -66,4 +75,14 @@ return require('packer').startup(function(use)
   use { 'ThePrimeagen/vim-be-good' }
   use { 'rstacruz/vim-closer' }
   use { 'christoomey/vim-tmux-navigator' }
+
+  -- This is a cool plugin, but I cannot see my cursor when it is enabled
+  --[[
+  use { 
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require("ibl").setup()
+    end
+  }
+  --]]
 end)
