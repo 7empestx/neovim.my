@@ -15,6 +15,10 @@ require('typescript').setup({
       -- https://github.com/jose-elias-alvarez/typescript.nvim#commands
 
       vim.keymap.set('n', '<leader>ci', '<cmd>TypescriptAddMissingImports<cr>', {buffer = bufnr})
+      vim.keymap.set('n', '<leader>cr', '<cmd>TypescriptRenameFile<cr>', {buffer = bufnr})
+      vim.keymap.set('n', '<leader>cf', '<cmd>TypescriptOrganizeImports<cr>', {buffer = bufnr})
+      vim.keymap.set('n', '<leader>ca', '<cmd>TypescriptCodeAction<cr>', {buffer = bufnr})
+      vim.keymap.set('n', '<leader>ce', '<cmd>TypescriptErrors<cr>', {buffer = bufnr})
     end
   }
 })
