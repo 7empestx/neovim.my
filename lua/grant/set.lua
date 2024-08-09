@@ -1,5 +1,3 @@
-vim.opt.guicursor = ""
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -30,6 +28,8 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.o.guicursor = "n-v-c:block,i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250"
+
 vim.diagnostic.config({
   underline = true,
   virtual_text = false,
@@ -45,4 +45,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
   group = highlight_group,
   pattern = '*',
+})
+
+-- Autocommand to set cursor to a blinking line when exiting Neovim
+vim.api.nvim_create_augroup('SetCursorOnExit', { clear = true })
+vim.api.nvim_create_autocmd('VimLeave', {
+  group = 'SetCursorOnExit',
+  command = 'set guicursor=a:hor10-blinkon1',
 })

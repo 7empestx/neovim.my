@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
       -- Configure the tokyonight theme
       require("tokyonight").setup({
         -- Set the theme style
-        transparent = true,   -- Enable transparency
+        transparent = false,    -- Enable transparency
         terminal_colors = true, -- Enable terminal colors
 
         -- Configure styles
@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
           functions = {},
           variables = {},
           sidebars = "dark", -- Sidebar style
-          floats = "dark", -- Floating window style
+          floats = "dark",   -- Floating window style
         },
 
         -- Sidebar configuration
@@ -66,8 +66,9 @@ return require('packer').startup(function(use)
 
   -- Going to also try out noice
   -- Noice is noice but too buggy
+  --[[
   use {
-    '7empestx/noice.nvim',
+    '/Users/grantstarkman/Mine/noice.nvim',
     event = "VimEnter",
     config = function()
       require('noice').setup()
@@ -77,6 +78,7 @@ return require('packer').startup(function(use)
       "rcarriga/nvim-notify"
     },
   }
+  --]]
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('theprimeagen/harpoon')
@@ -126,4 +128,12 @@ return require('packer').startup(function(use)
   use { 'ThePrimeagen/vim-be-good' }
   use { 'rstacruz/vim-closer' }
   use { 'christoomey/vim-tmux-navigator' }
+  use 'nvim-lua/lsp_extensions.nvim'
+
+  use { "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup {
+      }
+    end
+  }
 end)

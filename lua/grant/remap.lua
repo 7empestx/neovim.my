@@ -96,6 +96,7 @@ vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references")
 
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
 
+vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('i', '<C-k>', '<Plug>(copilot-next)')
 vim.keymap.set('i', '<C-j>', '<Plug>(copilot-previous)')
