@@ -1,6 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -18,16 +15,6 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
-
-  --[[
-  use({
-    "olimorris/onedarkpro.nvim",
-    as = 'onedarkpro',
-    config = function()
-      vim.cmd('colorscheme onedark')
-    end
-  })
-  --]]
 
   -- Going to try out tokyonight
   use({
@@ -57,6 +44,12 @@ return require('packer').startup(function(use)
         hide_inactive_statusline = false,
         dim_inactive = false,
         lualine_bold = false,
+
+        on_highlights = function(highlights, colors)
+          -- Make line numbers much more visible
+          highlights.LineNr = { fg = "#FF00FF" }                    -- Bright magenta (impossible to miss)
+          highlights.CursorLineNr = { fg = "#FFFF00", bold = true } -- Bright yellow for current line
+        end
       })
 
       -- Activate the tokyonight color scheme
@@ -64,49 +57,32 @@ return require('packer').startup(function(use)
     end
   })
 
-  -- Going to also try out noice
-  -- Noice is noice but too buggy
-  --[[
-  use {
-    '/Users/grantstarkman/Mine/noice.nvim',
-    event = "VimEnter",
-    config = function()
-      require('noice').setup()
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify"
-    },
-  }
-  --]]
-
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
 
-  use {
-    'VonHeikemen/lsp-zero.nvim', branch = 'v2.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      {                            -- Optional
-        'williamboman/mason.nvim',
-        run = function()
-          pcall(vim.cmd, 'MasonUpdate')
-        end,
-      },
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+  -- LSP Configuration
+  use { 'neovim/nvim-lspconfig' }
+  use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
 
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
-    }
-  }
+  -- Autocompletion
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'L3MON4D3/LuaSnip' }
 
   use('jose-elias-alvarez/typescript.nvim')
-  use('github/copilot.vim')
+  -- Tabby AI coding assistant (self-hosted Copilot alternative)
+  use {
+    'TabbyML/vim-tabby',
+    config = function()
+      vim.g.tabby_agent_start_command = { "npx", "tabby-agent", "--stdio" }
+      vim.g.tabby_inline_completion_trigger = "auto"
+      vim.g.tabby_disable_lsp = 1
+      vim.g.tabby_no_lsp = 1
+    end
+  }
   use('airblade/vim-gitgutter')
 
   use {
@@ -128,7 +104,6 @@ return require('packer').startup(function(use)
   use { 'ThePrimeagen/vim-be-good' }
   use { 'rstacruz/vim-closer' }
   use { 'christoomey/vim-tmux-navigator' }
-  use 'nvim-lua/lsp_extensions.nvim'
 
   use { "lukas-reineke/indent-blankline.nvim",
     config = function()
