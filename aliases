@@ -1,0 +1,6 @@
+alias zshconfig="nvim ~/.zshrc"
+alias tmuxconfig="cd ~/.config/tmux && nvim ."
+alias nvimconfig="cd ~/.config/nvim && nvim ."
+alias n="nvim ."
+alias gitconfig="git config --global --edit"
+
