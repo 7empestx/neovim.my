@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
@@ -74,6 +74,7 @@ return require('packer').startup(function(use)
 
   use('jose-elias-alvarez/typescript.nvim')
   -- Tabby AI coding assistant (self-hosted Copilot alternative)
+  --[[
   use {
     'TabbyML/vim-tabby',
     config = function()
@@ -83,6 +84,7 @@ return require('packer').startup(function(use)
       vim.g.tabby_no_lsp = 1
     end
   }
+  --]]
   use('airblade/vim-gitgutter')
 
   use {
