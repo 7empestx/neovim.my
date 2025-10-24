@@ -6,18 +6,19 @@ require('mason-lspconfig').setup({
   automatic_installation = true,
 })
 
-local lspconfig = require('lspconfig')
-
--- TypeScript/JavaScript LSP setup
-lspconfig.ts_ls.setup({
+-- TypeScript/JavaScript LSP setup using new vim.lsp.config API
+vim.lsp.config.ts_ls = {
+  cmd = { 'typescript-language-server', '--stdio' },
   filetypes = {
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   },
-  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
-})
+  root_markers = { "package.json", "tsconfig.json", ".git" },
+}
+
+vim.lsp.enable('ts_ls')
 
 -- LSP keymaps
 vim.api.nvim_create_autocmd('LspAttach', {

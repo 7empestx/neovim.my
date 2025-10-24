@@ -72,6 +72,9 @@ return require('packer').startup(function(use)
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'L3MON4D3/LuaSnip' }
 
+  -- GitHub Copilot
+  use { 'github/copilot.vim' }
+
   use('jose-elias-alvarez/typescript.nvim')
   -- Tabby AI coding assistant (self-hosted Copilot alternative)
   --[[
@@ -85,7 +88,7 @@ return require('packer').startup(function(use)
     end
   }
   --]]
-  use('airblade/vim-gitgutter')
+  use 'lewis6991/gitsigns.nvim'
 
   use {
     'chipsenkbeil/distant.nvim',
