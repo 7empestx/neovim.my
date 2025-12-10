@@ -109,8 +109,6 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   exec tmux new-session -A -s main
 fi
 
-
-
 code() {
   local vscode_path="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
   if [[ -f "$vscode_path" ]]; then
