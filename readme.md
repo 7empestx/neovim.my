@@ -111,6 +111,12 @@ Prefix: `Ctrl+Space`
 | `tmuxconfig` | `cd ~/.config/tmux && nvim .` |
 | `nvimconfig` | `cd ~/.config/nvim && nvim .` |
 
+## Post-Wipe Bootstrap
+
+- `post-wipe/Brewfile-terminal` - minimal Homebrew bundle for your terminal stack
+- `post-wipe/setup-terminal.sh` - reinstall script for Ghostty, tmux, zsh, and Neovim
+- `post-wipe/post-wipe-terminal-setup.md` - restore order and follow-up notes
+
 ## Other Software
 
 - Firefox - Browser
