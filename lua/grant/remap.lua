@@ -1,5 +1,4 @@
--- Sets the leader key to the spacebar
-vim.g.mapleader = " "
+-- Leader key is set in set.lua (must load before lazy.nvim)
 
 -- Escape current file and go to netrw
 vim.keymap.set("n", "<leader>fj", vim.cmd.Ex)
@@ -68,7 +67,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- In normal mode, the leader key followed by 'vpp' opens a specific Lua file from a directory path
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/grant/packer.lua<CR>")
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/grant/lazy.lua<CR>")
 
 -- In normal mode, the leader key followed by 'mr' runs a CellularAutomaton function named "make_it_rain", which is probably a custom function
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
@@ -98,6 +97,7 @@ vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('i', '<C-k>', '<Plug>(copilot-next)')
-vim.keymap.set('i', '<C-j>', '<Plug>(copilot-previous)')
-vim.keymap.set('i', '<C-l>', '<Plug>(copilot-suggest)')
+-- Copilot keymaps are now configured in packer.lua via copilot.lua
+
+-- Toggle render-markdown on/off
+vim.keymap.set("n", "<leader>md", "<cmd>RenderMarkdown toggle<CR>")
