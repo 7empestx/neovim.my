@@ -33,8 +33,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- In normal and visual mode, paste the current line or selection into the system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+-- In normal mode, paste from the system clipboard. (Visual <leader>p is reserved
+-- for the register-preserving "_dP paste above.)
+vim.keymap.set("n", "<leader>p", [["+p]])
 vim.keymap.set("n", "<leader>P", [["+P]])
 
 -- In normal and visual mode, delete the current line or selection without altering the unnamed register
@@ -45,9 +46,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Disables the 'Q' key in normal mode
 vim.keymap.set("n", "Q", "<nop>")
-
--- In normal mode, Control-f runs a shell command to open a new tmux window with a tmux-sessionizer session
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- In normal mode, the leader key followed by 'f' runs a formatting function on the current buffer, probably using an installed LSP (Language Server Protocol)
 vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
